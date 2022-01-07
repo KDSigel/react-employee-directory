@@ -15,7 +15,7 @@ export default function Register() {
     e.preventDefault();
     const user = await signUpUser(email, password);
     setUser(user);
-    history.replace('/editprofile');
+    history.replace('/createprofile');
   };
 
   return (

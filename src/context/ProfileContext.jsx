@@ -1,19 +1,23 @@
 import { createContext, useContext, useState } from 'react';
 import { getProfile } from '../services/profiles';
+import { useUser } from './UserContext';
+
 
 const ProfileContext = createContext();
 
+
 const ProfileProvider = ({ children }) => {
+  const {user} = useUser();
   const currentProfile = getProfile();
   const [profile, setProfile] = useState(
     currentProfile.name
       ? {
           name: currentProfile.name,
-          email: currentProfile.email,
+          email: user.email,
           bio: currentProfile.bio,
           birthday: currentProfile.birthday,
         }
-      : null
+      : {}
   );
 
   return (

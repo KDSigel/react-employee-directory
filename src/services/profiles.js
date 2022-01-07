@@ -1,8 +1,10 @@
 import { client, parseData } from './client';
 
 export async function getProfile() {
+  try {
   const request = await client.from('profiles').select().single();
-  return parseData(request);
+  return parseData(request);}
+  catch {return {}}
 }
 
 export async function updateProfile({ name, email, bio, birthday }) {

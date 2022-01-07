@@ -31,6 +31,9 @@ export default function App() {
           <PrivateRoute path="/editprofile">
             <EditProfile />
           </PrivateRoute>
+          <PrivateRoute path="/createprofile">
+            <EditProfile isEdit={false}/>
+          </PrivateRoute>
         </Switch>
       </Router>
       </ProfileProvider>

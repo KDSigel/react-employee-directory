@@ -9,7 +9,7 @@ export default function Header() {
   const history = useHistory();
   
   const handleLogout = async () => {
-    signOutUser();
+    await signOutUser();
     setUser(null)
     history.push('/login');
   }
