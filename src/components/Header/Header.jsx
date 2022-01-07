@@ -1,9 +1,18 @@
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { useUser } from '../../context/UserContext';
 import { signOutUser } from '../../services/users';
 
 export default function Header() {
-  const { user } = useUser();
+  const { user, setUser } = useUser();
+
+  const history = useHistory();
+  
+  const handleLogout = async () => {
+    signOutUser();
+    setUser(null)
+    history.push('/login');
+  }
 
   return (
     <div>
@@ -13,7 +22,7 @@ export default function Header() {
         {user ? (
           <>
             You are signed in as {user.email}
-            <button onClick={() => signOutUser()}>Sign Out</button>
+            <button onClick={handleLogout}>Sign Out</button>
           </>
         ) : (
           <Link to="/login">
