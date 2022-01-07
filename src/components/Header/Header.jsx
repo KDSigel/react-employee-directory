@@ -1,8 +1,26 @@
+import { Link } from 'react-router-dom';
+import { useUser } from '../../context/UserContext';
+import { signOutUser } from '../../services/users';
+
 export default function Header() {
-    return (
-        <div>
-            <span>Acme Inc name</span><span>A “Sign In” button if the user is signed out</span>
-            <span>A “You are signed in as "email” message with a “Sign Out” button if the user is signed in</span>
-        </div>
-    )
+  const { user } = useUser();
+
+  return (
+    <div>
+      <span>Acme Inc</span>
+      <span>____________</span>
+      <span>
+        {user ? (
+          <>
+            You are signed in as {user.email}
+            <button onClick={() => signOutUser()}>Sign Out</button>
+          </>
+        ) : (
+          <Link to="/login">
+            <button>Sign In</button>
+          </Link>
+        )}
+      </span>
+    </div>
+  );
 }
