@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/Header/Header';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import { ProfileProvider } from './context/ProfileContext';
 import { UserProvider } from './context/UserContext';
 import EditProfile from './views/EditProfile/EditProfile';
 import Home from './views/Home/Home';
@@ -11,12 +12,13 @@ import Register from './views/Register/Register';
 export default function App() {
   return (
     <UserProvider>
+      <ProfileProvider>
       <Router>
         <Header />
         <Switch>
-          <PrivateRoute exact path="/">
+          <Route exact path="/">
             <Home />
-          </PrivateRoute>
+          </Route>
           <Route path="/login">
             <LogIn />
           </Route>
@@ -31,6 +33,7 @@ export default function App() {
           </PrivateRoute>
         </Switch>
       </Router>
+      </ProfileProvider>
     </UserProvider>
   );
 }

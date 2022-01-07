@@ -16,7 +16,7 @@ export default function Header() {
 
   return (
     <div>
-      <span>Acme Inc</span>
+      <span>Karl Inc</span>
       <span>____________</span>
       <span>
         {user ? (

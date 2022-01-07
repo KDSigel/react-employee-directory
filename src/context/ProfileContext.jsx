@@ -1,18 +1,17 @@
 import { createContext, useContext, useState } from 'react';
 import { getProfile } from '../services/profiles';
-import { getUser } from '../services/users';
 
 const ProfileContext = createContext();
 
 const ProfileProvider = ({ children }) => {
   const currentProfile = getProfile();
   const [profile, setProfile] = useState(
-    currentProfile
+    currentProfile.name
       ? {
-          name: currentProfile?.name,
+          name: currentProfile.name,
           email: currentProfile.email,
-          bio: currentUser?.bio,
-          birthday: currentUser?.birthday,
+          bio: currentProfile.bio,
+          birthday: currentProfile.birthday,
         }
       : null
   );
@@ -32,4 +31,4 @@ const useProfile = () => {
     return profileCtx
 };
 
-export { ProfileContext, useProfile };
+export { ProfileProvider, useProfile };

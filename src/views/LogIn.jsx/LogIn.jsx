@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import EmailPasswordForm from '../../components/EmailPasswordForm/EmailPasswordForm';
+import { useProfile } from '../../context/ProfileContext';
 import { useUser } from '../../context/UserContext';
 import { signInUser } from '../../services/users';
 
@@ -11,12 +12,16 @@ export default function LogIn() {
   const [password, setPassword] = useState('');
 
   const { setUser } = useUser();
+  const {profile} = useProfile();
 
   const handleSignIn = async (e) => {
     e.preventDefault();
     const user = await signInUser(email, password);
     setUser(user);
-    history.replace('/profile');
+    { profile ?
+    history.replace('/profile')
+    : history.replace('/editprofile')
+    }
   };
 
   return (
