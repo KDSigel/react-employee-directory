@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render the Header component 1`] = `
+<div>
+  <div>
+    <span>
+      Karl Inc
+    </span>
+    <span>
+      ____________
+    </span>
+    <span>
+      <span>
+        Not logged in
+        <a
+          href="/login"
+        >
+          <button>
+            Sign In
+          </button>
+        </a>
+      </span>
+    </span>
+  </div>
+</div>
+`;
