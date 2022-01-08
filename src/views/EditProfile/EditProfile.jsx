@@ -10,10 +10,10 @@ export default function EditProfile({isEdit=true}) {
 
   const history = useHistory()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     isEdit
-     ? updateProfile({...formState, email: user.email}) : createProfile({...formState, email: user.email}) 
+     ? await updateProfile({...formState, email: user.email}) : await createProfile({...formState, email: user.email}) 
      isEdit=false
     history.push('/profile')
   };

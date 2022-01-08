@@ -8,6 +8,10 @@ export default function Profile() {
 
     const history = useHistory()
 
+    const handleEdit = () => {
+        history.push('/editprofile')
+    }
+
     useEffect(() => {
 
         async function setExistingProfile () { 
@@ -19,7 +23,7 @@ export default function Profile() {
 
     return (
         <div>
-            {/* <button onClick={history.push('/editprofile')}>edit profile</button> */}
+            <button onClick={handleEdit}>edit profile</button>
             <p>name: {currentProfile.name}</p>
             <p>email: {currentProfile.email} </p>
             <p>birthday: {currentProfile.birthday} </p>

@@ -10,8 +10,8 @@ export default function Header() {
   
   const handleLogout = async () => {
     await signOutUser();
-    setUser(null)
-    history.push('/login');
+   setUser({})
+    history.push('/');
   }
 
   return (
@@ -19,16 +19,17 @@ export default function Header() {
       <span>Karl Inc</span>
       <span>____________</span>
       <span>
-        {user ? (
+        {user.email ? 
           <>
             You are signed in as {user.email}
             <button onClick={handleLogout}>Sign Out</button>
           </>
-        ) : (
+         : <span>Not logged in
           <Link to="/login">
             <button>Sign In</button>
           </Link>
-        )}
+          </span>
+        }
       </span>
     </div>
   );

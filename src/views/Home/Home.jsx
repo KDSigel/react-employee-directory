@@ -9,9 +9,9 @@ export default function Home() {
       <p>
         As an employee of Karl Inc., you're required (under penalty of death) to create a profile on our intranet in order for your overlords to gain access to your personal info so we can fire you for any reason we want.
       </p>
-      <p>Create an account now, then log in and fill out the details, or else.</p>
+      <p>Create an account right now! Fill out the all of the details truthfully, or else.</p>
       <p>Thank you for your mandatory participation.</p>
-      {!user ? (
+      {!user.email ? (
         <p>
           <a href="/register">Create Account</a>
           <span> or </span> 

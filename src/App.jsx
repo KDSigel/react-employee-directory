@@ -12,7 +12,7 @@ import Register from './views/Register/Register';
 export default function App() {
   return (
     <UserProvider>
-      <ProfileProvider>
+      {/* <ProfileProvider> */}
       <Router>
         <Header />
         <Switch>
@@ -36,7 +36,7 @@ export default function App() {
           </PrivateRoute>
         </Switch>
       </Router>
-      </ProfileProvider>
+      {/* </ProfileProvider> */}
     </UserProvider>
   );
 }
